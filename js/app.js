@@ -223,11 +223,12 @@ const showProducts = (products) => {
       <div>
     <img class="product-image" src=${image}></img>
       </div>
-      <h2>${product.title.slice(0, 10)}</h2>
+      <br>
+      <h2>${product.title.slice(0, 18)}</h2>
       <p class="fst-italic">Category: ${product.category}</p>
-      <h4>Price: $ ${product.price}</h4>
-      <h6>Total-Rating : ${count}</h6>
-      <h6>Average-rating:${rate}</h6><br>
+      <h4><span class="text-danger">Price:</span> $${product.price}</h4><br>
+      <h6><span class="fst-italic">Total-Rating:</span> ${count}</h6>
+      <h6><span class="fst-italic">Average-rating:</span> ${rate}</h6><br>
       <button onclick="addToCart(${product.id},${
       product.price
     })" id="addToCart-btn" class="buy-now btn btn-dark">Add to cart</button>
@@ -239,9 +240,8 @@ const showProducts = (products) => {
     document.getElementById("all-products").appendChild(div);
   }
 };
-// detail modal
+//Click detail modal
 const showDetails = (price, rating) => {
-  console.log(price, rating);
   document.getElementById("modal-body").innerHTML = `
   
      <div class='p-3'>
@@ -274,7 +274,6 @@ const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
   const convertPrice = parseFloat(value);
   const total = convertedOldPrice + convertPrice;
-  console.log(total, typeof total);
   document.getElementById(id).innerText = total.toFixed(2);
 };
 
@@ -302,18 +301,10 @@ const updateTaxAndCharge = () => {
 
 //grandTotal update function
 const updateTotal = () => {
-  console.log(
-    getInputValue("price"),
-    getInputValue("delivery-charge"),
-    getInputValue("total-tax")
-  );
-
   const grandTotal =
     getInputValue("price") +
     getInputValue("delivery-charge") +
     getInputValue("total-tax");
-
-  console.log(grandTotal);
   document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
 

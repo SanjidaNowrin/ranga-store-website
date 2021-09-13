@@ -42,6 +42,7 @@ body {
   background-color: #ded8cc;
   box-shadow: 1px 1px 1px #dfdfdf;
   border-radius: 5px;
+  height: 500px;
 }
 .single-product:hover {
   box-shadow: 4px 4px 7px gray;
